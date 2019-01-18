@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "test": "echo \"Esto es parte de la instalación\" && exit 1"
+    "test": "jest *.js"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
   }
 }

@@ -28,13 +28,27 @@ const users = [
 
 const lookup = (login, property) => {
   // Inicio
+
+  const user = users.find(user => user.login === login);
+
+  if(!user){
+    throw new Error("Could not find user")
+  }
+
+  if(user.hasOwnProperty(property) === false){
+    throw new Error('Could not find property');
+  }
+  
+  return user[property];
   // Fin
 };
+
+
 
 // Tests
 describe('lookup()', () => {
   it("lookup(<login>, 'likes') debería retornar los likes para el usuario especificado.", () => {
-    const actual = lookup('norvig', 'likes');
+    const actual = lookup('norvig', 'likes'); // ['AI', 'Search', 'NASA', 'Mars']
     const expected = ['AI', 'Search', 'NASA', 'Mars'];
 
     expect(actual).toEqual(expected);
